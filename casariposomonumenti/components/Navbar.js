@@ -77,7 +77,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 w-full z-20">
-      <div className="flex py-3 items-center border-b border-b-gray-100 bg-gradient-to-r from-[#1F426E] to-[#1F426E] lg:px-12 px-6 shadow-sm justify-between text-white">
+      <div className="flex py-3 items-center border-b border-b-gray-100 bg-gradient-to-r from-[#34568B] to-[#34568B] lg:px-12 px-6 shadow-sm justify-between text-white">
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex flex-1 items-center justify-between">
@@ -151,7 +151,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <button className="bg-white text-[#1F426E] px-4 py-2 rounded-md hover:bg-gray-100 transition-colors ml-auto">
+          <button className="bg-white text-[#34568B] px-4 py-2 rounded-md hover:bg-gray-100 transition-colors ml-auto">
             Regione Veneto
           </button>
         </div>
@@ -160,7 +160,7 @@ export default function Navbar() {
         <div className="block lg:hidden">
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="p-2 rounded-full hover:bg-[#2A5594] transition-all"
+            className="p-2 rounded-full hover:bg-[#456C9F] transition-all"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
