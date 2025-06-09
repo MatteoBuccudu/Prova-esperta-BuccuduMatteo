@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const ServizioAssistenzaDomiciliareSADPage = () => {
+const StatutoPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,15 +20,6 @@ const ServizioAssistenzaDomiciliareSADPage = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -39,8 +30,8 @@ const ServizioAssistenzaDomiciliareSADPage = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/servizio_assistenza_domiciliare_sad/hero.jpg" // Placeholder image
-          alt="Servizio di Assistenza Domiciliare S.A.D. Hero"
+          src="/images/statuto/hero.jpg" // Placeholder image
+          alt="Statuto Hero"
           layout="fill"
           objectFit="cover"
           className="z-0"
@@ -53,129 +44,33 @@ const ServizioAssistenzaDomiciliareSADPage = () => {
           className="relative z-20 text-center text-white p-6"
         >
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-wider drop-shadow-lg">
-            SERVIZIO DI ASSISTENZA DOMICILIARE S.A.D.
+            STATUTO
           </h1>
           <p className="mt-4 text-xl md:text-2xl font-light max-w-2xl mx-auto">
-            Il servizio di Assistenza Domiciliare è un servizio sociale territoriale rivolto ai singoli o a nuclei familiari in difficoltà che, per specifiche esigenze di ordine socio-assistenziali permanenti o temporanee, hanno necessità di aiuto a domicilio, sostegno e collaborazione per attività relative alla cura della persona, al governo della casa, alla vita di relazione e al superamento di difficoltà organizzative familiari.
+            Scarica il nostro statuto in formato PDF per consultare le normative
+            e le disposizioni che regolano l'IPAB.
           </p>
         </motion.div>
       </div>
 
+      {/* Main Content - Empty or minimal */}
       <div className="container mx-auto px-4 py-16 max-w-6xl">
-        {/* Descrizione Generale */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-16 bg-white shadow-lg rounded-xl p-8 md:p-12"
+        <p className="text-center text-gray-600">
+          Per maggiori informazioni, scarica il PDF dello Statuto.
+        </p>
+        <motion.a
+          href="/images/statuto/CdR_Statuto_2021.pdf" // Percorso del file PDF dello statuto
+          download
+          className="mt-8 px-8 py-3 bg-[#1F426E] text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-[#153358] transition-colors duration-300 mx-auto block w-fit"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-[#1F426E] mb-6 border-b-2 border-[#1F426E] pb-3">
-            Il nostro servizio
-          </h2>
-          <p className="text-lg leading-relaxed text-gray-700">
-            Il servizio di Assistenza Domiciliare è un servizio sociale territoriale rivolto ai singoli o a nuclei familiari in difficoltà che, per specifiche esigenze di ordine socio-assistenziali permanenti o temporanee, hanno necessità di aiuto a domicilio, sostegno e collaborazione per attività relative alla cura della persona, al governo della casa, alla vita di relazione e al superamento di difficoltà organizzative familiari.
-          </p>
-        </motion.section>
-
-        {/* Obiettivi del servizio */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-16 grid md:grid-cols-2 gap-12"
-        >
-          <div>
-            <h2 className="text-3xl font-bold text-[#1F426E] mb-6 border-b-2 border-[#1F426E] pb-3">
-              Obiettivi
-            </h2>
-            <ul className="space-y-4 text-lg text-gray-700">
-              <motion.li variants={itemVariants} className="flex items-start">
-                <span>
-                  Mantenimento, inserimento e reinserimento delle persone in stato di bisogno nell'ambiente familiare e sociale di appartenenza.
-                </span>
-              </motion.li>
-              <motion.li variants={itemVariants} className="flex items-start">
-                <span>Promozione e recupero delle capacità di autonomia delle persone attraverso le risorse personali, familiari, amicali e di vicinato presenti nel territorio.</span>
-              </motion.li>
-              <motion.li variants={itemVariants} className="flex items-start">
-                <span>Contrasto dei processi di emarginazione sociale, isolamento e solitudine.</span>
-              </motion.li>
-            </ul>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden md:flex items-center justify-center"
-          >
-            <Image
-              src="/images/domiciliare_sad/sociale.jpg" // Placeholder image
-              alt="Obiettivi del servizio"
-              width={500}
-              height={350}
-              objectFit="cover"
-              className="rounded-xl shadow-lg"
-            />
-          </motion.div>
-        </motion.section>
-
-        {/* Attraverso il SAD, inoltre, si intende */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-16 grid md:grid-cols-2 gap-12"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden md:flex items-center justify-center order-2 md:order-1"
-          >
-            <Image
-              src="/images/domiciliare_sad/immagine_anziani.jpg" // Placeholder image
-              alt="Attività del servizio"
-              width={500}
-              height={350}
-              objectFit="cover"
-              className="rounded-xl shadow-lg"
-            />
-          </motion.div>
-          <div className="order-1 md:order-2">
-            <h2 className="text-3xl font-bold text-[#1F426E] mb-6 border-b-2 border-[#1F426E] pb-3">
-              Attraverso il SAD, inoltre, si intende
-            </h2>
-            <ul className="space-y-4 text-lg text-gray-700">
-              <motion.li variants={itemVariants} className="flex items-start">
-                <span>Favorire la creazione di legami significativi e relazioni sociali e supportare la rete sociale esistente attraverso la programmazione di un insieme di servizi e prestazioni a tutela della persona fragile.</span>
-              </motion.li>
-              <motion.li variants={itemVariants} className="flex items-start">
-                <span>Promuovere una comunità sempre più responsabile verso le persone e le situazioni familiari più fragili.</span>
-              </motion.li>
-              <motion.li variants={itemVariants} className="flex items-start">
-                <span>Sviluppare servizi e interventi avviati in tema di promozione della domiciliarità e del lavoro di comunità.</span>
-              </motion.li>
-            </ul>
-          </div>
-        </motion.section>
-
-        {/* IPAB Collaboration */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          className="bg-white shadow-lg rounded-xl p-8 md:p-12"
-        >
-          <h2 className="text-3xl font-bold text-[#1F426E] mb-6 border-b-2 border-[#1F426E] pb-3">
-            Collaborazione con l'IPAB
-          </h2>
-          <p className="text-lg leading-relaxed text-gray-700">
-            L'IPAB collabora con il servizio sociale dell'Amministrazione Comunale nell'erogazione di questo servizio per mantenere il più a lungo possibile l'anziano nel suo "mondo" di appartenenza, evitandone l'istituzionalizzazione prima del tempo necessario.
-          </p>
-        </motion.section>
+          Scarica lo Statuto
+        </motion.a>
       </div>
     </motion.div>
   );
 };
 
-export default ServizioAssistenzaDomiciliareSADPage;
+export default StatutoPage;

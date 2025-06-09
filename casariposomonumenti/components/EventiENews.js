@@ -220,48 +220,34 @@ const EventiENews = () => {
                 <motion.div
                   whileHover={{ y: -8 }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative bg-white rounded-2xl p-8 h-full flex flex-col items-center justify-center text-center space-y-4 shadow-xl overflow-hidden cursor-pointer group"
+                  className="relative bg-white rounded-2xl p-8 h-full flex flex-col items-center justify-center text-center space-y-4 shadow-xl overflow-hidden cursor-pointer"
                 >
-                  {/* Background gradient animation - MODIFICATO */}
+                  {/* Background gradient animation */}
                   <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredCard === index ? 0.9 : 0 }}
+                    animate={{ opacity: hoveredCard === index ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className={`absolute inset-0 bg-gradient-to-br ${link.color}`}
+                    className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-10`}
                   />
 
-                  {/* Icon container - MODIFICATO */}
+                  {/* Icon container */}
                   <motion.div
                     animate={{
                       scale: hoveredCard === index ? 1.2 : 1,
                       rotate: hoveredCard === index ? 360 : 0,
                     }}
                     transition={{ duration: 0.5 }}
-                    className={`relative z-10 p-4 rounded-full ${
-                      hoveredCard === index
-                        ? "bg-white shadow-2xl"
-                        : `bg-gradient-to-br ${link.color} text-white shadow-lg`
-                    }`}
+                    className={`relative z-10 p-4 rounded-full bg-gradient-to-br ${link.color} text-white shadow-lg`}
                   >
-                    <div
-                      className={
-                        hoveredCard === index
-                          ? `text-transparent bg-clip-text bg-gradient-to-br ${link.color}`
-                          : ""
-                      }
-                    >
-                      {link.icon}
-                    </div>
+                    {link.icon}
                   </motion.div>
 
-                  {/* Label - MODIFICATO */}
+                  {/* Label */}
                   <motion.span
                     animate={{
                       scale: hoveredCard === index ? 1.05 : 1,
                     }}
-                    className={`text-xl font-bold relative z-10 transition-colors duration-300 ${
-                      hoveredCard === index ? "text-white" : "text-gray-800"
-                    }`}
+                    className="text-xl font-bold text-gray-800 relative z-10"
                   >
                     {link.label}
                   </motion.span>

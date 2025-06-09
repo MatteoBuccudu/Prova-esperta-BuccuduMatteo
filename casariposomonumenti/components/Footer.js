@@ -63,65 +63,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Sezione Link Utili (da personalizzare con link reali) */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-white">Link Utili</h3>
-            <ul className="space-y-3 text-gray-200">
-              <li>
-                <Link
-                  href="/chi-siamo"
-                  className="hover:underline transition-colors"
-                >
-                  Chi siamo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/servizi"
-                  className="hover:underline transition-colors"
-                >
-                  Servizi
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contatti"
-                  className="hover:underline transition-colors"
-                >
-                  Contatti
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="hover:underline transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              {/* Aggiungi altri link pertinenti qui */}
-            </ul>
-          </div>
-
-          {/* Orari (Esempio) */}
-          <div className="col-span-1">
-            <h3 className="text-2xl font-bold mb-6 text-white">
-              Orari Ufficio
-            </h3>
-            <ul className="space-y-3 text-gray-200">
-              <li>
-                Lunedì - Venerdì:{" "}
-                <span className="font-semibold">8:00 - 18:00</span>
-              </li>
-              <li>
-                Sabato: <span className="font-semibold">9:00 - 12:00</span>
-              </li>
-              <li>
-                Domenica: <span className="font-semibold">Chiuso</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Logo o Breve Descrizione (nuova sezione) */}
           <div className="col-span-1">
             <h3 className="text-2xl font-bold mb-6 text-white">

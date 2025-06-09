@@ -56,10 +56,7 @@ export default function Navbar() {
           href: "/ipab-informa/amministrazione-trasparente",
           label: "AMMINISTRAZIONE TRASPARENTE",
         },
-        {
-          href: "/ipab-informa/amministrazione-trasparente-link",
-          label: "Amministrazione trasparente",
-        },
+
       ],
     },
     { href: "/sostienici", label: "Sostienici" },
