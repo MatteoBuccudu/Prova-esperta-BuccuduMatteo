@@ -134,7 +134,8 @@ const DeterminePage = () => {
                   29/03/2024
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  AFFIDAMENTO DIRETTO PER ELABORAZIONE CEDOLINI AMMINISTRATORI E ADEMPIMENTI OBBLI...
+                  AFFIDAMENTO DIRETTO PER ELABORAZIONE CEDOLINI AMMINISTRATORI E
+                  ADEMPIMENTI OBBLI...
                 </td>
               </tr>
               <tr className="hover:bg-gray-50">
@@ -148,7 +149,8 @@ const DeterminePage = () => {
                   29/03/2024
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  PROROGA DEL SERVIZIO DI ASSISTENZA SOCIALE PRESSO LO SPORTELLO ASSISTENTI FAMILIARI FI...
+                  PROROGA DEL SERVIZIO DI ASSISTENZA SOCIALE PRESSO LO SPORTELLO
+                  ASSISTENTI FAMILIARI FI...
                 </td>
               </tr>
               <tr className="hover:bg-gray-50">
@@ -176,7 +178,8 @@ const DeterminePage = () => {
                   05/02/2024
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  AFFIDAMENTO DIRETTO PER RINNOVO CONTRATTO ANNUALE DI MANUTENZIONE ED ASSISTENZA...
+                  AFFIDAMENTO DIRETTO PER RINNOVO CONTRATTO ANNUALE DI
+                  MANUTENZIONE ED ASSISTENZA...
                 </td>
               </tr>
               <tr className="hover:bg-gray-50">
@@ -190,7 +193,8 @@ const DeterminePage = () => {
                   21/12/2023
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  PROROGA DEL SERVIZIO DI ASSISTENZA SOCIALE PRESSO LO SPORTELLO ASSISTENTI FAMILIARI FI...
+                  PROROGA DEL SERVIZIO DI ASSISTENZA SOCIALE PRESSO LO SPORTELLO
+                  ASSISTENTI FAMILIARI FI...
                 </td>
               </tr>
             </tbody>

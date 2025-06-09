@@ -3,7 +3,21 @@
 import React from "react";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = ({
+  contacts = {
+    tel: "0421 330807",
+    protocollo: "info@cdrmonumento.com",
+    presidenza: "presidente@cdrmonumento.com",
+    direzione: "direttore@cdrmonumento.com",
+    contabilitaRette: "contabilita@cdrmonumento.com",
+    pec: "cdrmonumento@halleypec.it",
+  },
+  mission = {
+    title: "La Nostra Missione",
+    description:
+      "Dedicati a offrire assistenza e cura di qualità, migliorando la vita dei nostri anziani con dignità e rispetto.",
+  },
+}) => {
   return (
     <footer className="bg-[#1F426E] text-white py-12 shadow-inner mt-12">
       <div className="container mx-auto px-4">
@@ -13,51 +27,48 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-6 text-white">Contatti</h3>
             <ul className="space-y-3 text-gray-200">
               <li>
-                <span className="font-semibold">Tel:</span> 0421 330807
+                <span className="font-semibold">Tel:</span> {contacts.tel}
               </li>
               <li>
                 <span className="font-semibold">PROTOCOLLO:</span>{" "}
                 <a
-                  href="mailto:info@cdrmonumento.com"
+                  href={`mailto:${contacts.protocollo}`}
                   className="hover:underline"
                 >
-                  info@cdrmonumento.com
+                  {contacts.protocollo}
                 </a>
               </li>
               <li>
                 <span className="font-semibold">PRESIDENZA:</span>{" "}
                 <a
-                  href="mailto:presidente@cdrmonumento.com"
+                  href={`mailto:${contacts.presidenza}`}
                   className="hover:underline"
                 >
-                  presidente@cdrmonumento.com
+                  {contacts.presidenza}
                 </a>
               </li>
               <li>
                 <span className="font-semibold">DIREZIONE:</span>{" "}
                 <a
-                  href="mailto:direttore@cdrmonumento.com"
+                  href={`mailto:${contacts.direzione}`}
                   className="hover:underline"
                 >
-                  direttore@cdrmonumento.com
+                  {contacts.direzione}
                 </a>
               </li>
               <li>
                 <span className="font-semibold">CONTABILITA' E RETTE:</span>{" "}
                 <a
-                  href="mailto:contabilita@cdrmonumento.com"
+                  href={`mailto:${contacts.contabilitaRette}`}
                   className="hover:underline"
                 >
-                  contabilita@cdrmonumento.com
+                  {contacts.contabilitaRette}
                 </a>
               </li>
               <li>
                 <span className="font-semibold">PEC:</span>{" "}
-                <a
-                  href="mailto:cdrmonumento@halleypec.it"
-                  className="hover:underline"
-                >
-                  cdrmonumento@halleypec.it
+                <a href={`mailto:${contacts.pec}`} className="hover:underline">
+                  {contacts.pec}
                 </a>
               </li>
             </ul>
@@ -66,11 +77,10 @@ const Footer = () => {
           {/* Logo o Breve Descrizione (nuova sezione) */}
           <div className="col-span-1">
             <h3 className="text-2xl font-bold mb-6 text-white">
-              La Nostra Missione
+              {mission.title}
             </h3>
             <p className="text-gray-200 leading-relaxed">
-              Dedicati a offrire assistenza e cura di qualità, migliorando la
-              vita dei nostri anziani con dignità e rispetto.
+              {mission.description}
             </p>
             {/* Potresti aggiungere qui un logo o un'immagine */}
           </div>

@@ -251,20 +251,73 @@ const EventiENews = () => {
                   >
                     {link.label}
                   </motion.span>
-
-                  {/* Hover effect line */}
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${link.color}`}
-                  />
                 </motion.div>
               </Link>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Nuova Sezione Evento Book Crossing */}
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.0 }}
+        className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl p-10 mt-12 flex flex-col backdrop-blur-sm border border-gray-100"
+      >
+        <motion.h2
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#1F426E] to-[#2A5594] mb-8 pb-4 relative"
+        >
+          Inaugurazione Book Crossing
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1F426E] to-[#2A5594] rounded-full"
+          />
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.8 }}
+            className="text-gray-700 leading-relaxed flex-grow"
+          >
+            <p className="mb-4 text-sm text-gray-500">20/05/2025</p>
+            <p className="mb-6 text-lg leading-8">
+              Gentilissimi,
+              <br />
+              <br />
+              il Consiglio di Amministrazione ha il piacere di invitarVi
+              all'inaugurazione delle casette di book crossing che si terrà
+              Lunedì 16 giugno alle ore 16:30 presso il parco della Casa di
+              Riposo "Monumento ai Caduti in Guerra".
+              <br />
+              <br />
+              Certi di fare cosa gradita, si porgono cordiali saluti.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.6 }}
+            className="mb-8 md:mb-0 overflow-hidden rounded-xl shadow-xl relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+            <Image
+              src="/images/eventinews/Bookcrossing.jpg"
+              alt="Inaugurazione Book Crossing"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };

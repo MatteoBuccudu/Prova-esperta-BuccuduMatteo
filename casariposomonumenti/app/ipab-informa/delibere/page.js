@@ -176,7 +176,8 @@ const DeliberePage = () => {
                   15/07/2024
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  APPROVAZIONE DEL BILANCIO DI ESERCIZIO 2023 E RELATIVI ALLEGATI
+                  APPROVAZIONE DEL BILANCIO DI ESERCIZIO 2023 E RELATIVI
+                  ALLEGATI
                 </td>
               </tr>
               <tr className="hover:bg-gray-50">
@@ -190,7 +191,8 @@ const DeliberePage = () => {
                   17/04/2024
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  GESTIONE DEL SERVIZIO CENTRO DIURNO "ANCHISE" ULTERIORI DETERMINAZIONI.
+                  GESTIONE DEL SERVIZIO CENTRO DIURNO "ANCHISE" ULTERIORI
+                  DETERMINAZIONI.
                 </td>
               </tr>
             </tbody>
