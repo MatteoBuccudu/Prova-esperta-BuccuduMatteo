@@ -133,7 +133,7 @@ const ServizioAssistenzaDomiciliareSADPage = () => {
             className="hidden md:flex items-center justify-center order-2 md:order-1"
           >
             <Image
-              src="/images/servizio_assistenza_domiciliare_sad/attivita.jpg" // Placeholder image
+              src="/images/domiciliare_sad/immagine_anziani.jpg" // Placeholder image
               alt="Attività del servizio"
               width={500}
               height={350}
