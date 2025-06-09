@@ -68,22 +68,34 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-6 text-white">Link Utili</h3>
             <ul className="space-y-3 text-gray-200">
               <li>
-                <Link href="#" className="hover:underline transition-colors">
+                <Link
+                  href="/chi-siamo"
+                  className="hover:underline transition-colors"
+                >
                   Chi siamo
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline transition-colors">
+                <Link
+                  href="/servizi"
+                  className="hover:underline transition-colors"
+                >
                   Servizi
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline transition-colors">
+                <Link
+                  href="/contatti"
+                  className="hover:underline transition-colors"
+                >
                   Contatti
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline transition-colors">
+                <Link
+                  href="/privacy-policy"
+                  className="hover:underline transition-colors"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -135,12 +147,24 @@ const Footer = () => {
               <img
                 src="https://www.w3.org/Icons/valid-html401"
                 alt="Valid HTML"
+                width="50"
+                height="50"
               />
             </a>
             <a href="#" className="hover:opacity-75 transition-opacity">
               <img
-                src="https://www.w3.org/Icons/valid-css"
+                src="https://www.cdrmonumento.com/ae2131/immagini/yellow_wai-aa.gif"
                 alt="Valid CSS"
+                width="50"
+                height="50"
+              />
+            </a>
+            <a href="#" className="hover:opacity-75 transition-opacity">
+              <img
+                src="https://www.cdrmonumento.com/ae2131/immagini/valid_css3.png"
+                alt="Valid CSS"
+                width="50"
+                height="50"
               />
             </a>
             {/* Aggiungi altri validatori o badge se necessario */}

@@ -1,48 +1,187 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 const EventiENews = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const fullText = `Qualche breve cenno alla Storia dell'IPAB "MONUMENTO AI CADUTI IN GUERRA". Dopo l'annessione del Veneto all'Italia, l'Amministrazione comunale di San Donà ebbe un diverso assetto, rispetto a quello avuto sino ad ora: organo Principe divenne il Consiglio comunale, il Sindaco era di nomina regia, ma scelto tra i consiglieri ed affiancato da una Giunta di Assessore eletti dal Consiglio comunale tra i propri membri. A livello nazionale nel 1882 si ammettono all'elettorato politico tutti i cittadini maggiorenni che superino l'esame del corso scolastico obbligatorio oppure paghino un censo di 19,80 lire. Subito dopo nel 1915 diviene elettore amministrativo di un comune chi è cittadino italiano, ha compiuto 21 anni, ha la residenza nel comune ovvero paga nel comune un censo, e contro il quale non siano insorte cause di esclusione per incapacità o indegnità.`;
-  const truncatedText = fullText.substring(0, 300) + "..."; // Truncate to first 300 characters for example
+  const truncatedText = fullText.substring(0, 300) + "...";
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
-  return (
-    <div className="container mx-auto px-4 py-12 mt-40">
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Sezione Presentazione */}
-        <div className="bg-white rounded-xl shadow-2xl p-8 flex flex-col">
-          <h2 className="text-4xl font-extrabold text-[#1F426E] mb-6 border-b-4 border-[#1F426E] pb-4">
-            Eventi e News
-          </h2>
+  const quickLinks = [
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-12 w-12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+          />
+        </svg>
+      ),
+      label: "Amministrazione trasparente",
+      href: "/ipab-informa/amministrazione-trasparente",
+      color: "from-blue-500 to-blue-700",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-12 w-12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
+        </svg>
+      ),
+      label: "Albo pretorio online",
+      href: "/ipab-informa/albo-pretorio",
+      color: "from-purple-500 to-purple-700",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-12 w-12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
+        </svg>
+      ),
+      label: "Contatti",
+      href: "/contatti",
+      color: "from-green-500 to-green-700",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-12 w-12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"
+          />
+        </svg>
+      ),
+      label: "PagoPA",
+      href: "/pagopa",
+      color: "from-orange-500 to-orange-700",
+    },
+  ];
 
-          <div className="mb-6 flex justify-start">
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0 }}
+      transition={{ duration: 0.6 }}
+      className="container mx-auto px-4 py-12 mt-40"
+    >
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Sezione Presentazione */}
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl p-10 flex flex-col backdrop-blur-sm border border-gray-100"
+        >
+          <motion.h2
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#1F426E] to-[#2A5594] mb-8 pb-4 relative"
+          >
+            Eventi e News
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1F426E] to-[#2A5594] rounded-full"
+            />
+          </motion.h2>
+
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mb-8 overflow-hidden rounded-xl shadow-xl relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
             <Image
               src="/images/ipab.jpg"
               alt="Eventi e News"
               width={600}
               height={400}
-              className="rounded-lg shadow-md"
+              className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
             />
-          </div>
+          </motion.div>
 
-          <div className="text-gray-700 leading-relaxed flex-grow">
-            <p className="mb-4 text-lg">
-              {isExpanded ? fullText : truncatedText}
-            </p>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-gray-700 leading-relaxed flex-grow"
+          >
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={isExpanded ? "expanded" : "truncated"}
+                initial={{ opacity: 0, height: "auto" }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: "auto" }}
+                transition={{ duration: 0.3 }}
+                className="mb-6 text-lg leading-8"
+              >
+                {isExpanded ? fullText : truncatedText}
+              </motion.p>
+            </AnimatePresence>
 
-            <button
+            <motion.button
               onClick={toggleExpand}
-              className="inline-flex items-center text-[#1F426E] hover:text-[#2A5594] transition-colors font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center text-white bg-gradient-to-r from-[#1F426E] to-[#2A5594] hover:from-[#2A5594] hover:to-[#1F426E] px-6 py-3 rounded-full transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
             >
-              <svg
+              <motion.svg
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 mr-2"
                 fill="none"
@@ -53,119 +192,94 @@ const EventiENews = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  d="M19 9l-7 7-7-7"
                 />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
+              </motion.svg>
               {isExpanded ? "Mostra meno" : "Continua a leggere"}
-              <span className="ml-2 text-sm">→</span>
-            </button>
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
 
         {/* Sezione Quick Links */}
         <div className="grid grid-cols-2 gap-6">
-          {[
-            {
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  />
-                </svg>
-              ),
-              label: "Amministrazione trasparente",
-              href: "/ipab-informa/amministrazione-trasparente",
-            },
-            {
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              ),
-              label: "Albo pretorio online",
-              href: "/ipab-informa/albo-pretorio",
-            },
-            {
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              ),
-              label: "Contatti",
-              href: "/contatti",
-            },
-            {
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"
-                  />
-                </svg>
-              ),
-              label: "PagoPA",
-              href: "/pagopa",
-            },
-          ].map((link, index) => (
-            <Link
+          {quickLinks.map((link, index) => (
+            <motion.div
               key={index}
-              href={link.href}
-              className="bg-white rounded-xl p-8 flex flex-col items-center justify-center text-center space-y-4 shadow-xl transform hover:scale-105 transition-all duration-300"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.2 + index * 0.1,
+                type: "spring",
+                stiffness: 200,
+              }}
+              onHoverStart={() => setHoveredCard(index)}
+              onHoverEnd={() => setHoveredCard(null)}
             >
-              {link.icon}
-              <span className="text-xl font-bold text-[#1F426E]">
-                {link.label}
-              </span>
-            </Link>
+              <Link href={link.href}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative bg-white rounded-2xl p-8 h-full flex flex-col items-center justify-center text-center space-y-4 shadow-xl overflow-hidden cursor-pointer group"
+                >
+                  {/* Background gradient animation - MODIFICATO */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: hoveredCard === index ? 0.9 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`absolute inset-0 bg-gradient-to-br ${link.color}`}
+                  />
+
+                  {/* Icon container - MODIFICATO */}
+                  <motion.div
+                    animate={{
+                      scale: hoveredCard === index ? 1.2 : 1,
+                      rotate: hoveredCard === index ? 360 : 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                    className={`relative z-10 p-4 rounded-full ${
+                      hoveredCard === index
+                        ? "bg-white shadow-2xl"
+                        : `bg-gradient-to-br ${link.color} text-white shadow-lg`
+                    }`}
+                  >
+                    <div
+                      className={
+                        hoveredCard === index
+                          ? `text-transparent bg-clip-text bg-gradient-to-br ${link.color}`
+                          : ""
+                      }
+                    >
+                      {link.icon}
+                    </div>
+                  </motion.div>
+
+                  {/* Label - MODIFICATO */}
+                  <motion.span
+                    animate={{
+                      scale: hoveredCard === index ? 1.05 : 1,
+                    }}
+                    className={`text-xl font-bold relative z-10 transition-colors duration-300 ${
+                      hoveredCard === index ? "text-white" : "text-gray-800"
+                    }`}
+                  >
+                    {link.label}
+                  </motion.span>
+
+                  {/* Hover effect line */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${link.color}`}
+                  />
+                </motion.div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
